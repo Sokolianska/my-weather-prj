@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather app</title>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="src/styles.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/f14eb4ee3c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="all-border">
+        <form class="search-form" id="search-form">
+          <div class="row">
+            <div class="col-4">
+              <input
+                type="button"
+                value="Current"
+                class="form-control btn btn-secondary shadow-sm"
+                id="current-location-button"
+              />
+            </div>
+            <div class="col-4">
+              <input
+                type="search"
+                placeholder="type a city"
+                class="form-control shadow-sm"
+                id="city-input"
+                autofocus="on"
+              />
+            </div>
+            <div class="col-4">
+              <input
+                type="submit"
+                value="Search"
+                class="form-control btn btn-secondary shadow-sm"
+              />
+            </div>
+          </div>
+        </form>
+        <i class="fa-solid fa-cloud-sun-rain rain-icon"></i>
+        <div class="mood" id="description"></div>
+        <div class="weather">
+          <div class="card-weather">
+            <div class="weather-date-location">
+              <h3></h3>
+              <p class="text">
+                <span class="weather-date"></span>
+                <h1 class="weather-location" id="city"></h1>
+              </p>
+            </div>
+            <div class="temp">
+              <div class="search-icon">
+                <svg class="svg-icon" viewBox="0 0 20 20">
+                  <path
+                    d="M10,1.375c-3.17,0-5.75,2.548-5.75,5.682c0,6.685,5.259,11.276,5.483,11.469c0.152,0.132,0.382,0.132,0.534,0c0.224-0.193,5.481-4.784,5.483-11.469C15.75,3.923,13.171,1.375,10,1.375 M10,17.653c-1.064-1.024-4.929-5.127-4.929-10.596c0-2.68,2.212-4.861,4.929-4.861s4.929,2.181,4.929,4.861C14.927,12.518,11.063,16.627,10,17.653 M10,3.839c-1.815,0-3.286,1.47-3.286,3.286s1.47,3.286,3.286,3.286s3.286-1.47,3.286-3.286S11.815,3.839,10,3.839 M10,9.589c-1.359,0-2.464-1.105-2.464-2.464S8.641,4.661,10,4.661s2.464,1.105,2.464,2.464S11.359,9.589,10,9.589"
+                  ></path>
+                </svg>
+              </div>
+              <span class="temp-degree" id="temperature"></span>
+              <span class="units"
+                ><a class="temp-celsius" href="#" id="temp-celsius"
+                  >&deg;C |
+                </a>
+                <a class="temp-farengeit" href="#" id="temp-farengeit"
+                  >&deg;F</a
+                ></span
+              >
+            </div>
+            <div class="temp-details">
+              <!-- <p class="icon-details"> -->
+              <!-- <i class="fa fa-solid fa-cloud-showers-heavy"></i> -->
+              <!-- precipitation -->
+              <!-- <span id="presipitation"> 0 </span>% -->
+              <!-- </p> -->
+
+              <p class="icon-details">
+                <i class="fa fa-solid fa-wind" aria-hidden="true"></i>
+                wind
+                <span id="wind"> </span> km/h
+              </p>
+
+              <p class="icon-details">
+                <i class="fa fa-tint mr-2" aria-hidden="true"></i>
+                humidity
+                <span id="humidity"> </span>%
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row weather-week">
+          <div class="col-2 week-icon">
+            <div class="card" style="width: 4rem;">
+              <i class="fa-solid fa-cloud"></i>
+              <a href="#" class="btn btn-light">18°C</a>
+              <div class="card-body">
+                <h6 class="card-title">MON</h6>
+                <h6 class="card-text">06/06</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-2 week-icon">
+            <div class="card" style="width: 4rem;">
+              <i class="fa-solid fa-cloud-bolt"></i>
+              <a href="#" class="btn btn-light">17°C</a>
+              <div class="card-body">
+                <h6 class="card-title">TUE</h6>
+                <h6 class="card-text">07/06</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-2 week-icon">
+            <div class="card" style="width: 4rem;">
+              <i class="fa-solid fa-smog"></i>
+              <a href="#" class="btn btn-light">20°C</a>
+              <div class="card-body">
+                <h6 class="card-title">WED</h6>
+                <h6 class="card-text">08/06</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-2 week-icon">
+            <div class="card" style="width: 4rem;">
+              <i class="fa-solid fa-sun"></i>
+              <a href="#" class="btn btn-light">23°C</a>
+              <div class="card-body">
+                <h6 class="card-title">THU</h6>
+                <h6 class="card-text">09/06</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-2 week-icon">
+            <div class="card" style="width: 4rem;">
+              <i class="fa-solid fa-cloud-sun"></i>
+              <a href="#" class="btn btn-light">20°C</a>
+              <div class="card-body">
+                <h6 class="card-title">FRI</h6>
+                <h6 class="card-text">10/06</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="src/index.js"></script>
+    </div>
+  </body>
+</html>
