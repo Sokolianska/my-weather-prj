@@ -91,7 +91,7 @@ body {
 
 .card-title {
   color: #1d4f7a;
-  font-size: 12px;
+  font-size: 10px;
   text-align: center;
 }
 .card-text {
@@ -101,7 +101,7 @@ body {
 }
 
 .btn-light {
-  font-size: 13px;
+  font-size: 10px;
   font-style: italic;
   color: #1d4f7a;
 }
@@ -148,12 +148,12 @@ body {
 .weather-week {
   margin: auto;
 }
-.card {
-  margin: 20px;
+.allweek{
+    justify-content: center;
 }
 
-.btn-secondary:focus,
-.btn-secondary:hover {
+.buttons:focus,
+.buttons:hover {
   transform: scale(1.1);
   border: 2px solid #ffffff;
   background-color: #1d4f7a;
@@ -161,14 +161,14 @@ body {
   color: #fff;
   outline: none;
 }
-.btn-secondary {
-  background-color: #fff;
-  border: 2px solid #ffffff;
-}
-.search-input {
+
+.searching {
   justify-content: center;
   color: #1d4f7a;
+  
 }
+
+
 .mood {
   font-size: 15px;
   color: #fff;
@@ -196,11 +196,7 @@ body {
   font-size: 15px;
   font-weight: 400;
 }
-.form-control {
-  text-align: center;
-  font-size: 14.5px;
-  color: #1d4f7a;
-}
+
 
 .search-icon {
   height: 25px;
