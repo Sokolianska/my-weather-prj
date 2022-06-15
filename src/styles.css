@@ -204,7 +204,7 @@ body {
 .grey {
   color: #fff;
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 
@@ -219,4 +219,27 @@ body {
 .search-icon:hover {
   transform: scale(1.2);
   fill: #ffffff;
+}
+
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+  color: #1d4f7a;
+}
+
+.weather-forecast-date {
+  font-size: 16px;
+  opacity: 0.5;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.5;
+}
+
+.weather-forecast-temperatures {
+  font-size: 13px;
+}
+
+.made{
+  font-size: 11px;
 }
