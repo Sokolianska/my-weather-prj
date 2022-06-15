@@ -77,6 +77,12 @@ function displayWeatherCondition(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+  
+  let iconElement = document.querySelector("#icon");
+   iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+  
+   celsiusTemperature = response.data.main.temp;
 }
 
 function searchCity(city) {
@@ -111,14 +117,29 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 
 searchCity("Dnipro");
 
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 66;
+
+//fahrenheit - link
+function displayFahrenheitTemperature(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature");
+    
+    let fahrenheitTemperature = (celsiusTemperature*9)/5+32;
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
-function convertToCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 19;
+let fahrenheitLink = document.querySelector("#temp-farengeit");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+//celsius-link
+function displayCelsiusTemperature(event) {
+    event.preventDefault();
+    
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+    
 }
+
+let celsiusTemperature = null;
+
+let celsiusLink = document.querySelector("#temp-celsius");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);

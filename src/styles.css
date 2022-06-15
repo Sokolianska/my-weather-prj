@@ -60,7 +60,7 @@ body {
   text-align: center;
 }
 
-.temp-celsius,
+.active,
 .temp-farengeit {
   font-size: 15px;
   color: #1d4f7a;
