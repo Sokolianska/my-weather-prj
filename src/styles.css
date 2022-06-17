@@ -74,7 +74,7 @@ body {
   border: 2px solid #ffffff;
   padding: 30px;
   border-radius: 15px;
-  max-width: 450px;
+  width: 550px;
   background-color: rgba(121, 73, 73, 0.165);
   text-align: center;
 }
@@ -214,7 +214,7 @@ body {
   fill: #1d4f7a;
   position: absolute;
   margin-right: 50px;
-  margin-left: 120px;
+  margin-left:170px;
 }
 .search-icon:hover {
   transform: scale(1.2);
